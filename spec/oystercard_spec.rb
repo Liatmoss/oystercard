@@ -1,7 +1,6 @@
 require 'oystercard'
 
 describe Oystercard do
-
   it 'returns 0 when balance is called' do
     expect(subject.balance).to eq(0)
   end
@@ -17,9 +16,9 @@ describe Oystercard do
     expect { subject.top_up 1 }.to raise_error "Over the limit of #{maximum_balance}"
   end
 
-  it 'reduces balance by amount when deduct is called' do
+  it 'reduces balance by minimum amount when touch_out is called' do
     subject.top_up(5)
-    expect { subject.deduct(3) }.to change { subject.balance }.by -3
+    expect { subject.touch_out }.to change { subject.balance }.by -Oystercard::MINIMUM_FARE
   end
 
   it 'Returns false when in_journey? is called' do
