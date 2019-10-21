@@ -17,4 +17,9 @@ describe Oystercard do
     expect { subject.top_up 1 }.to raise_error "Over the limit of #{maximum_balance}"
   end
 
+  it 'reduces balance when deduct is called' do
+    subject.top_up(2)
+    expect(subject.deduct(1)).to eq 1
+  end
+
 end
