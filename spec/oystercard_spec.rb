@@ -22,4 +22,8 @@ describe Oystercard do
     expect { subject.deduct(3) }.to change { subject.balance }.by -3
   end
 
+  it 'Returns false when in_journey? is called' do
+    expect(subject).not_to be_in_journey
+  end
+
 end
