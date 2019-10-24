@@ -42,7 +42,6 @@ describe Oystercard do
     end
 
     it 'remembers the exit station after touch out' do
-      oystercard.top_up(5)
       oystercard.touch_in(station)
       oystercard.touch_out(station)
       expect(oystercard.exit_station).to eq station
@@ -72,7 +71,6 @@ describe Oystercard do
   end
 
   it 'expect journey_history to include station information' do
-    oystercard.top_up(5)
     oystercard.touch_in(entry_station)
     oystercard.touch_out(exit_station)
     expect(oystercard.journey_history).to include journeys
