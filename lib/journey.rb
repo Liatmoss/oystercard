@@ -1,14 +1,17 @@
 require_relative 'station'
+require_relative 'oystercard'
 
 
 class Journey
 
-  def initialize(station)
-    @station = station
+  def initialize(card, entry_station, exit_station)
+    @entry_station = entry_station
+    @exit_station = exit_station
+    @card = card
   end
 
-  def journey_start
-    @journey_start = true
+  def complete?
+    
   end
 
 end
